@@ -3,29 +3,40 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>ys_cell</string>
+	<string>ys_tablecell</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>+ (instancetype)cellWithTableView:(UITableView *)tableView
+	<string>- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    static NSString *ID = @"&lt;#id#&gt;";
+    if (self==[super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+        self.contentView.layer.borderColor = COLOR_Line_Small_Gay.CGColor;
+        self.contentView.layer.borderWidth = 0.5;
+        self.contentView.backgroundColor = [UIColor whiteColor];
+        
+    }
+    return self;
+}
+
++ (instancetype)cellWithTableView:(UITableView *)tableView
+{
+    static NSString *ID = @"&lt;#cell#&gt;";
     &lt;#cell#&gt; *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (cell == nil) {
         cell = [[&lt;#cell#&gt; alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
     return cell;
-}</string>
+}
+</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>712FB4AA-A95E-4EB0-97E4-6F0A18C706E8</string>
+	<string>E7776A34-D8B0-449F-8DE1-D0794477E3A4</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
-	<key>IDECodeSnippetSummary</key>
-	<string>ys_cell</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>table cell</string>
+	<string>ys_tablecell</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
